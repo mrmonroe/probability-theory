@@ -1,0 +1,30 @@
+{
+  "name": "probability-theory",
+  "version": "1.0.0",
+  "description": "Tools for working with probability functions, structures and theory.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmonroe/probability-theory.git"
+  },
+  "type": "module",
+  "keywords": [
+    "probability",
+    "functions",
+    "math",
+    "theory"
+  ],
+  "author": "Matt Monroe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrmonroe/probability-theory/issues"
+  },
+  "homepage": "https://github.com/mrmonroe/probability-theory#readme",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
