@@ -3,16 +3,21 @@
   "version": "1.0.0",
   "description": "Tools for working with probability functions, structures and theory.",
   "main": "index.js",
-  "publishConfig": { "registry": "https://registry.npmjs.org/" },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
-    "test": "jest"
-    
+    "test": "jest --coverage --verbose",
+    "start": "node main.js",
+    "docs": "jsdoc --configure .jsdoc.json --verbose",
+    "serve-docs": "http-server ./docs",
+    "lint": "jshint .",
+    "all": "npm run lint && npm run test && npm run docs && npm run serve-docs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrmonroe/probability-theory.git"
   },
-  "type": "module",
   "keywords": [
     "probability",
     "functions",
@@ -26,6 +31,11 @@
   },
   "homepage": "https://github.com/mrmonroe/probability-theory#readme",
   "devDependencies": {
-    "jest": "^26.4.2"
+    "braintree-jsdoc-template": "^3.3.0",
+    "http-server": "^0.12.3",
+    "jest": "^26.4.2",
+    "jsdoc": "^3.6.5",
+    "jsdoc-template": "^1.2.0",
+    "jshint": "^2.12.0"
   }
 }
