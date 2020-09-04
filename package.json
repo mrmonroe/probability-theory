@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Tools for working with probability functions, structures and theory.",
   "main": "index.js",
+  "publishConfig": { "registry": "https://registry.npmjs.org/" },
   "scripts": {
     "test": "jest"
     
