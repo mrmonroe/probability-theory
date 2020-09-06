@@ -1,5 +1,5 @@
 {
-  "name": "probability-theory",
+  "name": "probability-tools",
   "version": "1.0.0",
   "description": "Tools for working with probability functions, structures and theory.",
   "main": "index.js",
