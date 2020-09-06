@@ -3,4 +3,7 @@ notes.txt
 .jshintignore
 .jshintrc
 .gitignore
+.jsdoc.json
+.github
+coverage
 docs

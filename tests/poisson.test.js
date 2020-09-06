@@ -1,13 +1,17 @@
-const {Poisson} = require("../index.js")
+const {Poisson} = require("../index.js");
 
-let p = new Poisson()
+
+let p = new Poisson();
+
+
 test('runs poisson distribution for 2.5 fo 7 factorial to get array response', () => {
-  expect(p.pmf(2.5,7)).toStrictEqual(
-        [0.0821, 0.205, 0.257, 0.214, 0.134, 0.0668, 0.0278]
+    let evset = [10.5,1,1,1,1,1,1]
+  expect(p.pmf(evset)).toStrictEqual(
+        [0.0947, 0.223, 0.263, 0.207, 0.122, 0.0574, 0.0226 ]
   );    
 });
 test('set pmf and get EV AVG from first parameter', () => {
-    expect(p.getEvAvg()).toBe(2.5); 
+    expect(p.getEvAvg()).toBe(2.357142857142857); 
   });
 test('Set EV Avg to 5', () => {
     p.setEvAvg(5);

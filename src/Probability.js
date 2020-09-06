@@ -1,4 +1,4 @@
-/*jslint node: true */
+const helps = require('./helpers.js');
 "use strict";
 /**
  * @class
@@ -9,6 +9,8 @@ class Probability {
    * @constructor
    */
   constructor() {
+    
+    this.W = {};
     this.e = 2.7182818284590452353602874;
   }
   /**
@@ -18,6 +20,28 @@ class Probability {
    */
   euler() {
     return this.e;
+  }
+  
+/**
+   * Returns average of the sample space if the sample space contains only numbers
+   * @method
+   * @param {array} arr - The array containing the Sample space set
+   * @throws getSetAvg() parameter must be an array
+   * @throws getSetAvg() parameter must be an array of numbers to use this function
+   * @return {number} - Average of the set
+   * 
+   */
+  getSetAvg(arr){
+    if (typeof arr !== "object")
+        throw "getSetAvg() parameter must be an array";  
+    let n = arr.length;
+    let sum = 0;
+    for(var i = 0; i < n; i++){
+        if (typeof arr[i] !== "number")
+        throw "getSetAvg() parameter must be an array of numbers to use this function";
+        sum += arr[i]
+    }
+    return sum/n
   }
   /**
    * Returns a calculated factorial number of a given number n!.
@@ -30,5 +54,7 @@ class Probability {
     for (var i = 2; i <= n; i++) ans = ans * i;
     return ans;
   }
+
+
 }
 module.exports = Probability;

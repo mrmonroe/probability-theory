@@ -4,7 +4,9 @@
   "description": "Tools for working with probability functions, structures and theory.",
   "main": "index.js",
   "publishConfig": {
-    "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/"
+    }
   },
   "scripts": {
     "test": "jest --coverage --verbose",

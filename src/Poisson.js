@@ -1,4 +1,4 @@
-/*jslint node: true */
+const helps = require('./helpers.js');
 "use strict";
 const Probability = require("./Probability.js");
 /**
@@ -33,16 +33,21 @@ class Poisson extends Probability {
   /**
    * Poisson Distribution Probability Mass Function
    * @method
-   * @param {number} ev - The average number of times an event occurs in a given time
-   * @param {number} k - The kth times to iterate the distribution
+   * @param {array} ev - The set of events for the distribution 
    * @param {number} prec - The precision for returning the probability calculations
    * @return {array} Returns an array of floats containing the calculations of probabilities over kth iterations.
    */
-  pmf(ev, k, prec = 3) {
-    if (this.evAvg === null) this.setEvAvg(ev); //we'll use this later
+  pmf(ev, prec = 3) {
+    if (typeof ev !== "object")
+        throw "pmf() parameter ev must be an array";
+
+    let sAvg = this.getSetAvg(ev);
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$", sAvg)
+    let k = ev.length;
+    if (this.evAvg === null) this.setEvAvg(sAvg); //we'll use this later
     var arr = [];
     for (var i = 0; i < k; i++) {
-      let f = (Math.pow(ev, i) * Math.pow(this.e, -ev)) / this.factorial(i);
+      let f = (Math.pow(sAvg, i) * Math.pow(this.e, -sAvg)) / this.factorial(i);
       let prob = parseFloat(f.toPrecision(prec));
       arr.push(prob);
     }
