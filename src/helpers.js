@@ -1,3 +1,4 @@
+/* jshint node: true */
 "use strict";
 function _log(type, msg){
     let style = [
@@ -16,9 +17,9 @@ function _log(type, msg){
             style += notInSample; break;
         default: break;
     }
-    console.log(`%c${msg}`, style)
+    console.log(`%c${msg}`, style);
   }
 
-  module.export = {
+  module.exports = {
       _log
-  }
+  };

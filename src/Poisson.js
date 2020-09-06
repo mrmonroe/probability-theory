@@ -1,5 +1,7 @@
-const helps = require('./helpers.js');
+/* jshint node: true */
 "use strict";
+const helps = require('./helpers.js');
+
 const Probability = require("./Probability.js");
 /**
  * @class The Famous Poisson Distribution! <br/>
@@ -42,7 +44,6 @@ class Poisson extends Probability {
         throw "pmf() parameter ev must be an array";
 
     let sAvg = this.getSetAvg(ev);
-    console.log("$$$$$$$$$$$$$$$$$$$$$$$", sAvg)
     let k = ev.length;
     if (this.evAvg === null) this.setEvAvg(sAvg); //we'll use this later
     var arr = [];

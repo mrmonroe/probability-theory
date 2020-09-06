@@ -1,5 +1,6 @@
-const helps = require('./helpers.js');
+/* jshint node: true */
 "use strict";
+const helps = require('./helpers.js');
 /**
  * @class
  * A base class for helper functions and constants
@@ -33,15 +34,15 @@ class Probability {
    */
   getSetAvg(arr){
     if (typeof arr !== "object")
-        throw "getSetAvg() parameter must be an array";  
+        throw "getSetAvg() parameter arr must be an array";  
     let n = arr.length;
     let sum = 0;
     for(var i = 0; i < n; i++){
         if (typeof arr[i] !== "number")
         throw "getSetAvg() parameter must be an array of numbers to use this function";
-        sum += arr[i]
+        sum += arr[i];
     }
-    return sum/n
+    return sum/n;
   }
   /**
    * Returns a calculated factorial number of a given number n!.
