@@ -16,6 +16,7 @@
     "lint": "jshint .",
     "all": "npm run lint && npm run test && npm run docs && npm run serve-docs"
   },
+  "pre-commit": [ "lint", "test"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrmonroe/probability-theory.git"
@@ -38,6 +39,7 @@
     "jest": "^26.4.2",
     "jsdoc": "^3.6.5",
     "jsdoc-template": "^1.2.0",
-    "jshint": "^2.12.0"
+    "jshint": "^2.12.0",
+    "pre-commit": "^1.2.2"
   }
 }
