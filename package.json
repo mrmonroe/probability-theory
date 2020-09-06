@@ -27,6 +27,7 @@
   },
   "keywords": [
     "probability",
+    "poisson",
     "functions",
     "math",
     "theory"
@@ -45,8 +46,5 @@
     "jsdoc-template": "^1.2.0",
     "jshint": "^2.12.0",
     "pre-commit": "^1.2.2"
-  },
-  "dependencies": {
-    "fractional": "^1.0.0"
   }
 }
