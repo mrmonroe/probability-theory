@@ -82,7 +82,7 @@
       
     
 
-    <h3>Classes</h3><ul><li id="Poisson-nav"><a href="Poisson.html">Poisson</a><ul class='methods'><li data-type="method" id="Poisson-fisher-nav"><a href="Poisson.html#fisher">fisher</a></li><li data-type="method" id="Poisson-getEvAvg-nav"><a href="Poisson.html#getEvAvg">getEvAvg</a></li><li data-type="method" id="Poisson-kurtosis-nav"><a href="Poisson.html#kurtosis">kurtosis</a></li><li data-type="method" id="Poisson-mean-nav"><a href="Poisson.html#mean">mean</a></li><li data-type="method" id="Poisson-pmf-nav"><a href="Poisson.html#pmf">pmf</a></li><li data-type="method" id="Poisson-setEvAvg-nav"><a href="Poisson.html#setEvAvg">setEvAvg</a></li><li data-type="method" id="Poisson-skewness-nav"><a href="Poisson.html#skewness">skewness</a></li><li data-type="method" id="Poisson-variance-nav"><a href="Poisson.html#variance">variance</a></li></ul></li><li id="Probability-nav"><a href="Probability.html">Probability</a><ul class='methods'><li data-type="method" id="Probability-euler-nav"><a href="Probability.html#euler">euler</a></li><li data-type="method" id="Probability-factorial-nav"><a href="Probability.html#factorial">factorial</a></li><li data-type="method" id="Probability-getSetAvg-nav"><a href="Probability.html#getSetAvg">getSetAvg</a></li></ul></li></ul>
+    <h3>Classes</h3><ul><li id="Poisson-nav"><a href="Poisson.html">Poisson</a><ul class='methods'><li data-type="method" id="Poisson-fisher-nav"><a href="Poisson.html#fisher">fisher</a></li><li data-type="method" id="Poisson-getEvAvg-nav"><a href="Poisson.html#getEvAvg">getEvAvg</a></li><li data-type="method" id="Poisson-kurtosis-nav"><a href="Poisson.html#kurtosis">kurtosis</a></li><li data-type="method" id="Poisson-mean-nav"><a href="Poisson.html#mean">mean</a></li><li data-type="method" id="Poisson-pmf-nav"><a href="Poisson.html#pmf">pmf</a></li><li data-type="method" id="Poisson-setEvAvg-nav"><a href="Poisson.html#setEvAvg">setEvAvg</a></li><li data-type="method" id="Poisson-skewness-nav"><a href="Poisson.html#skewness">skewness</a></li><li data-type="method" id="Poisson-variance-nav"><a href="Poisson.html#variance">variance</a></li></ul></li><li id="Probability-nav"><a href="Probability.html">Probability</a><ul class='methods'><li data-type="method" id="Probability-euler-nav"><a href="Probability.html#euler">euler</a></li><li data-type="method" id="Probability-factorial-nav"><a href="Probability.html#factorial">factorial</a></li><li data-type="method" id="Probability-getSetAvg-nav"><a href="Probability.html#getSetAvg">getSetAvg</a></li><li data-type="method" id="Probability-odds-nav"><a href="Probability.html#odds">odds</a></li><li data-type="method" id="Probability-toFraction-nav"><a href="Probability.html#toFraction">toFraction</a></li></ul></li></ul>
   </nav>
 
   <div id="main">
@@ -594,6 +594,367 @@
       
     </ul>
   
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#odds">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="odds">
+      <span class="type-signature"></span>odds<span class="signature">(chance, isString, winLose)</span><span class="type-signature"> &rarr; {array|string}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Returns the odds based on the chance that an event occurs versus that it won't. <br/>
+Formula is p / (1 - p).</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+        <th>Default</th>
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>chance</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      number
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>A percentage that an event will occur</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>isString</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      boolean
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+          <td class="default">
+            
+              false
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>If set to true will return a string representation of the odds as a ratio.</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>winLose</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      string
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>Must be &quot;win&quot; or &quot;lose&quot;. If 25% chance of winning then odds are 1:3, if losing, 3:1.</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h5>Throws:</h5>
+  
+      
+
+  <div class="param-desc">
+    
+      <p>odds() chance parameter must be a number</p>
+    
+  </div>
+
+
+    
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#toFraction">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="toFraction">
+      <span class="type-signature"></span>toFraction<span class="signature">(dec)</span><span class="type-signature"> &rarr; {array|string}</span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Returns an array or string with numerator and denominator.</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>dec</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      number
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>The Decimal to return a fraction for.</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
