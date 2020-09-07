@@ -1,7 +1,8 @@
-# Home
+---
+description: All information for probability-tools package
+---
 
-* 
-##  Probability Theory
+# Home
 
 ##  Resources
 
