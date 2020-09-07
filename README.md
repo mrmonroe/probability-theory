@@ -1,5 +1,6 @@
 
-# Home
+# Probability Tools
+Tools for probability theory, functions and structures
     npm install probability-tools --save
 ##  Resources
 
