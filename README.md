@@ -1,5 +1,6 @@
 
 # Probability Tools
+![build](https://github.com/mrmonroe/probability-theory/workflows/build/badge.svg)
 Tools for probability theory, functions and structures
 
     npm install probability-tools --save
