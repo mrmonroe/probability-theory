@@ -8,3 +8,4 @@ notes.txt
 .gitbook
 coverage
 docs
+*.md
