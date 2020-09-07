@@ -85,7 +85,7 @@ class Probability {
   marginal(sample, events, fraction = false) {
     if (typeof sample !== "object" || typeof events !== "object")
       throw "only accepts arrays as parameters";
-      this._inSpace(sample,events);
+    this._inSpace(sample, events);
     let ans = events.length / sample.length;
     return ans;
   }
@@ -107,7 +107,7 @@ class Probability {
       //create complement set
       if (sample.indexOf(events[i]) > -1) {
         sample.splice(sample.indexOf(events[i]), 1);
-      }else{
+      } else {
         throw `${events[i]} is not in the sample space`;
       }
     }
@@ -117,7 +117,7 @@ class Probability {
     }
     return ans;
   }
-    /**
+  /**
    * Returns intersection probability of two events occuring against the sample space. Formula is: P(B)*P(A|B)
    * @method
    * @param {array} sample - The sample space
@@ -129,19 +129,23 @@ class Probability {
    * @return {number} The calculated probability
    */
   intersection(sample, eventA, eventB, fraction = false) {
-    if (typeof sample !== "object" || typeof eventA !== "object" || typeof eventB !== "object")
+    if (
+      typeof sample !== "object" ||
+      typeof eventA !== "object" ||
+      typeof eventB !== "object"
+    )
       throw "only accepts arrays as parameters";
-      this._inSpace(sample,eventA);
-      this._inSpace(sample,eventB);
-      let pb = this.marginal(sample, eventB);
-      let pa = this.marginal(sample, eventA);
-      let ans = pb * pa;
+    this._inSpace(sample, eventA);
+    this._inSpace(sample, eventB);
+    let pb = this.marginal(sample, eventB);
+    let pa = this.marginal(sample, eventA);
+    let ans = pb * pa;
     if (fraction) {
       ans = this.toFraction(ans);
     }
     return ans;
   }
-      /**
+  /**
    * Returns union probability of two events occuring against the sample space. Formula is: P(A)+P(B)-P(A⋂B)
    * @method
    * @param {array} sample - The sample space
@@ -153,14 +157,18 @@ class Probability {
    * @return {number} The calculated probability
    */
   union(sample, eventA, eventB, fraction = false) {
-    if (typeof sample !== "object" || typeof eventA !== "object" || typeof eventB !== "object")
+    if (
+      typeof sample !== "object" ||
+      typeof eventA !== "object" ||
+      typeof eventB !== "object"
+    )
       throw "only accepts arrays as parameters";
-      this._inSpace(sample,eventA);
-      this._inSpace(sample,eventB);
-      let pb = this.marginal(sample, eventB);
-      let pa = this.marginal(sample, eventA);
-      let iPBA = this.intersection(sample,eventA,eventB);
-      let ans = pa + pb - iPBA;
+    this._inSpace(sample, eventA);
+    this._inSpace(sample, eventB);
+    let pb = this.marginal(sample, eventB);
+    let pa = this.marginal(sample, eventA);
+    let iPBA = this.intersection(sample, eventA, eventB);
+    let ans = pa + pb - iPBA;
     if (fraction) {
       ans = this.toFraction(ans);
     }
@@ -220,7 +228,7 @@ class Probability {
     return [is_neg ? -num : num, den];
     /* jshint ignore:end */
   }
-  _inSpace(space, events){
+  _inSpace(space, events) {
     for (let i = 0; i < events.length; i++) {
       if (space.indexOf(events[i]) < 0) {
         throw `${events[i]} is not in the sample space`;
