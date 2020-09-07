@@ -1,9 +1,6 @@
----
-description: All information for probability-tools package
----
 
 # Home
-
+    npm install probability-tools --save
 ##  Resources
 
  [Poisson Distribution](https://en.wikipedia.org/wiki/Poisson_distribution)
