@@ -1,7 +1,9 @@
 
 # Probability Tools
 Tools for probability theory, functions and structures
+
     npm install probability-tools --save
+    
 ##  Resources
 
  [Poisson Distribution](https://en.wikipedia.org/wiki/Poisson_distribution)
