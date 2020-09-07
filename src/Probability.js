@@ -1,6 +1,5 @@
 /* jshint node: true */
 "use strict";
-const helps = require("./helpers.js");
 /**
  * @class
  * A base class for helper functions and constants
@@ -10,7 +9,6 @@ class Probability {
    * @constructor
    */
   constructor() {
-    this.W = {};
     this.e = 2.7182818284590452353602874;
   }
   /**
@@ -77,6 +75,98 @@ class Probability {
     return frac;
   }
   /**
+   * Returns probability of one set occuring against the sample space
+   * @method
+   * @param {array} sample - The sample space
+   * @param {array} events - The event set
+   * @param {array} fraction - If set to true returns probability as array of numerator and denominator
+   * @return {number} The calculated probability
+   */
+  marginal(sample, events, fraction = false) {
+    if (typeof sample !== "object" || typeof events !== "object")
+      throw "only accepts arrays as parameters";
+      this._inSpace(sample,events);
+    let ans = events.length / sample.length;
+    return ans;
+  }
+  /**
+   * Returns complement probability of a set occuring against the sample space. Formula is: P(D) = 1-P(Dc)
+   * @method
+   * @param {array} sample - The sample space
+   * @param {array} events - The event set
+   * @param {boolean} fraction - If set to true then return an array of numerator and denominator for probability.
+   * @throws "only accepts arrays as parameters"
+   * @thorws "event is not in the sample space"
+   * @return {number} The calculated probability
+   */
+  complement(sample, events, fraction = false) {
+    if (typeof sample !== "object" || typeof events !== "object")
+      throw "only accepts arrays as parameters";
+    let sampleLength = sample.length;
+    for (let i = 0; i < events.length; i++) {
+      //create complement set
+      if (sample.indexOf(events[i]) > -1) {
+        sample.splice(sample.indexOf(events[i]), 1);
+      }else{
+        throw `${events[i]} is not in the sample space`;
+      }
+    }
+    let ans = sample.length / sampleLength;
+    if (fraction) {
+      ans = this.toFraction(ans);
+    }
+    return ans;
+  }
+    /**
+   * Returns intersection probability of two events occuring against the sample space. Formula is: P(B)*P(A|B)
+   * @method
+   * @param {array} sample - The sample space
+   * @param {array} eventA - The event set
+   * @param {array} eventB - The event set
+   * @param {boolean} fraction - If set to true then return an array of numerator and denominator for probability.
+   * @throws "only accepts arrays as parameters"
+   * @thorws "event is not in the sample space"
+   * @return {number} The calculated probability
+   */
+  intersection(sample, eventA, eventB, fraction = false) {
+    if (typeof sample !== "object" || typeof eventA !== "object" || typeof eventB !== "object")
+      throw "only accepts arrays as parameters";
+      this._inSpace(sample,eventA);
+      this._inSpace(sample,eventB);
+      let pb = this.marginal(sample, eventB);
+      let pa = this.marginal(sample, eventA);
+      let ans = pb * pa;
+    if (fraction) {
+      ans = this.toFraction(ans);
+    }
+    return ans;
+  }
+      /**
+   * Returns union probability of two events occuring against the sample space. Formula is: P(A)+P(B)-P(A⋂B)
+   * @method
+   * @param {array} sample - The sample space
+   * @param {array} eventA - The event set
+   * @param {array} eventB - The event set
+   * @param {boolean} fraction - If set to true then return an array of numerator and denominator for probability.
+   * @throws "only accepts arrays as parameters"
+   * @thorws "event is not in the sample space"
+   * @return {number} The calculated probability
+   */
+  union(sample, eventA, eventB, fraction = false) {
+    if (typeof sample !== "object" || typeof eventA !== "object" || typeof eventB !== "object")
+      throw "only accepts arrays as parameters";
+      this._inSpace(sample,eventA);
+      this._inSpace(sample,eventB);
+      let pb = this.marginal(sample, eventB);
+      let pa = this.marginal(sample, eventA);
+      let iPBA = this.intersection(sample,eventA,eventB);
+      let ans = pa + pb - iPBA;
+    if (fraction) {
+      ans = this.toFraction(ans);
+    }
+    return ans;
+  }
+  /**
    * Returns a calculated factorial number of a given number n!.
    * @method
    * @param {number} n - The factorial number. let n = 4; 4! = 1 * 2 * 3 * 4 = 24
@@ -126,9 +216,16 @@ class Probability {
         done = true;
       }
     }
-/* jshint ignore:start */
+    /* jshint ignore:start */
     return [is_neg ? -num : num, den];
     /* jshint ignore:end */
+  }
+  _inSpace(space, events){
+    for (let i = 0; i < events.length; i++) {
+      if (space.indexOf(events[i]) < 0) {
+        throw `${events[i]} is not in the sample space`;
+      }
+    }
   }
 }
 module.exports = Probability;

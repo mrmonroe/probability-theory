@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "test": "jest --coverage --verbose",
+    "test": "jest --coverage --verbose --no-cache",
     "start": "node main.js",
     "docs": "jsdoc --configure .jsdoc.json --verbose",
     "serve-docs": "http-server ./docs",

@@ -1,7 +1,5 @@
 /* jshint node: true */
 "use strict";
-const helps = require('./helpers.js');
-
 const Probability = require("./Probability.js");
 /**
  * @class The Famous Poisson Distribution! <br/>
