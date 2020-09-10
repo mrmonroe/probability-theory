@@ -1,4 +1,6 @@
 ##  Probability Tools
+Tools for working with probability, structures, functions and theory.
+
 
 ![build](https://github.com/mrmonroe/probability-theory/workflows/build/badge.svg)
 
