@@ -70,7 +70,24 @@ Returns intersection probability of two events occuring against the sample space
 
 **Throws:**
 
-"only accepts arrays as parameters" 
+* "only accepts arrays as parameters"
+* "event is not in the sample space"
+
+####  intersectionByProb\(probA, probB, fraction\) → {number} <a id="intersectionByProb"></a>
+
+Returns intersection probability of two events occuring against the sample space. Formula is: P\(B\)\*P\(A\|B\)
+
+**Parameters:**
+
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `probA` |  number |  | Probability of event set A occuring |
+| `probB` |  number |  | Probability of event set B occuring |
+| `fraction` |  boolean |  false | If set to true then return an array of numerator and denominator for probability. |
+
+**Throws:**
+
+"only accepts numbers as parameters" 
 
 ####  marginal\(sample, events, fraction\) → {number} <a id="marginal"></a>
 
@@ -126,5 +143,21 @@ Returns union probability of two events occuring against the sample space. Formu
 
 **Throws:**
 
-"only accepts arrays as parameters"
+"only accepts arrays as parameters" 
+
+####  unionByProb\(probA, probB, fraction\) → {number} <a id="unionByProb"></a>
+
+Returns union probability of two events occuring given their probabilities. Formula is: P\(A\)+P\(B\)-P\(A⋂B\)
+
+**Parameters:**
+
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `probA` |  number |  | The probability of the event occuring |
+| `probB` |  number |  | The probability of the event occuring |
+| `fraction` |  boolean |  false | If set to true then return an array of numerator and denominator for probability. |
+
+**Throws:**
+
+"only accepts numbers as parameters"
 

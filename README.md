@@ -1,11 +1,8 @@
+# Home
 
-# Probability Tools
-![build](https://github.com/mrmonroe/probability-theory/workflows/build/badge.svg)
+* 
+##  Probability Theory
 
-Tools for probability theory, functions and structures
-
-    npm install probability-tools --save
-    
 ##  Resources
 
  [Poisson Distribution](https://en.wikipedia.org/wiki/Poisson_distribution)
@@ -27,8 +24,10 @@ Tools for probability theory, functions and structures
   * [factorial](probability.md#factorial)
   * [getSetAvg](probability.md#getSetAvg)
   * [intersection](probability.md#intersection)
+  * [intersectionByProb](probability.md#intersectionByProb)
   * [marginal](probability.md#marginal)
   * [odds](probability.md#odds)
   * [toFraction](probability.md#toFraction)
   * [union](probability.md#union)
+  * [unionByProb](probability.md#unionByProb)
 
