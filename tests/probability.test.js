@@ -59,4 +59,11 @@ test("union() of two events should return 0.4166666666666667 ", () => {
 test("union() of two events should return [] ", () => {
   expect(p.intersection([1,2,3,4,5,6],[3,4,5],[3,4,5,6,1],true)).toStrictEqual([5,12]);
 });
+
+test("intersection probability will return .24", () => {
+  expect(p.intersectionByProb(.60,.40)).toBe(.24);
+});
+test("union probability will return .60", () => {
+  expect(p.unionByProb(.40,.20)).toBe(.32);
+});
   

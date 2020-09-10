@@ -87,6 +87,9 @@ class Probability {
       throw "only accepts arrays as parameters";
     this._inSpace(sample, events);
     let ans = events.length / sample.length;
+    if (fraction) {
+      ans = this.toFraction(ans);
+    }
     return ans;
   }
   /**
@@ -125,7 +128,7 @@ class Probability {
    * @param {array} eventB - The event set
    * @param {boolean} fraction - If set to true then return an array of numerator and denominator for probability.
    * @throws "only accepts arrays as parameters"
-   * @thorws "event is not in the sample space"
+   * @throws "event is not in the sample space"
    * @return {number} The calculated probability
    */
   intersection(sample, eventA, eventB, fraction = false) {
@@ -140,6 +143,27 @@ class Probability {
     let pb = this.marginal(sample, eventB);
     let pa = this.marginal(sample, eventA);
     let ans = pb * pa;
+    if (fraction) {
+      ans = this.toFraction(ans);
+    }
+    return ans;
+  }
+    /**
+   * Returns intersection probability of two events occuring against the sample space. Formula is: P(B)*P(A|B)
+   * @method
+   * @param {number} probA - Probability of event set A occuring
+   * @param {number} probB - Probability of event set B occuring
+   * @param {boolean} fraction - If set to true then return an array of numerator and denominator for probability.
+   * @throws "only accepts numbers as parameters"
+   * @return {number} The calculated probability
+   */
+  intersectionByProb(probA, probB, fraction = false) {
+    if (
+      typeof probA !== "number" ||
+      typeof probB !== "number"
+    )
+      throw "only accepts numbers as parameters";
+    let ans = probA * probB;
     if (fraction) {
       ans = this.toFraction(ans);
     }
@@ -169,6 +193,28 @@ class Probability {
     let pa = this.marginal(sample, eventA);
     let iPBA = this.intersection(sample, eventA, eventB);
     let ans = pa + pb - iPBA;
+    if (fraction) {
+      ans = this.toFraction(ans);
+    }
+    return ans;
+  }
+    /**
+   * Returns union probability of two events occuring given their probabilities. Formula is: P(A)+P(B)-P(A⋂B)
+   * @method
+   * @param {number} probA - The probability of the event occuring
+   * @param {number} probB - The probability of the event occuring
+   * @param {boolean} fraction - If set to true then return an array of numerator and denominator for probability.
+   * @throws "only accepts numbers as parameters"
+   * @return {number} The calculated probability
+   */
+  unionByProb(probA, probB, fraction = false) {
+    if (
+      typeof probA !== "number" ||
+      typeof probB !== "number"
+    )
+      throw "only accepts numbers as parameters";
+    let iPBA = this.intersectionByProb(probA, probB);
+    let ans = probB + probB - iPBA;
     if (fraction) {
       ans = this.toFraction(ans);
     }
