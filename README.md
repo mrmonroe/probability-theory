@@ -1,7 +1,6 @@
-# Home
+##  Probability Tools
 
-* 
-##  Probability Theory
+![build](https://github.com/mrmonroe/probability-theory/workflows/build/badge.svg)
 
 ##  Resources
 
